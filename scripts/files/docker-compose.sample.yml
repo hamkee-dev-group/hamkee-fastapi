@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/dev.dockerfile
+    command: hypercorn --bind $HOST:$PORT --reload main:app
+    container_name: "$PROJECT_NAME"
+    ports:
+      - "$PORT:$PORT"
+    volumes:
+      - ./app:/app
+    env_file:
+      - .result 
+      - .env
+
