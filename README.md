@@ -93,13 +93,13 @@ hamkee-fastapi/
 ### Starting the API Locally
 
 ```bash
-rye run uvicorn app.main:app --reload
+PYTHONPATH=`pwd`/app rye run fastapi run app/main.py 
 ```
 
 ### Using Docker
 
 ```bash
-docker-compose up -d
+docker compose -f docker-compose.yml up
 ```
 
 The API will be available at `http://localhost:8000`.
@@ -112,20 +112,18 @@ Once the server is running, you can access the interactive API documentation:
 
 ## Configuration
 
-Hamkee API uses environment variables for configuration. Create a `.env` file in the project root:
+Hamkee API uses environment variables for configuration. Create a `.env` file in the project root (an `env.file.example` is provided).
 
 ```
 DEBUG=True
-LOG_LEVEL=INFO
-DATABASE_URL=postgresql://user:password@localhost/dbname
-API_KEY=your_api_key_here
+...
 ```
 
 ## Development Workflow
 
 1. Create new endpoints in the `app/api/` directory
-2. Define models in `app/models/`
-3. Implement business logic in `app/services/`
+2. Define models, interfaces, protocols and business logic in `app/models/`
+3. Implement services in `app/services/`
 4. Add tests in the `tests/` directory
 5. Run tests with `rye run pytest`
 
@@ -147,4 +145,4 @@ The AGPL license ensures that anyone who uses this software over a network must 
 
 ## Contact
 
-For questions or support, please open an issue on our [GitHub repository](https://github.com/yourusername/hamkee-fastapi/issues).
+For questions or support, please open an issue on our [GitHub repository](https://github.com/hamkee-dev-group/hamkee-fastapi/issues).
