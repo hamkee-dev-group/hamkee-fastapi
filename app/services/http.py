@@ -10,7 +10,9 @@ import httpx
 from httpx import AsyncClient, Response
 from result import Err, Ok, Result
 
-from app.services import logger
+from app.services.logger import create_logger
+
+logger = create_logger(__name__)
 
 # Type variable for generic return type
 T = TypeVar("T", bound=Response)
