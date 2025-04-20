@@ -2,6 +2,8 @@
 
 **Hamkee API** is a powerful scaffolding tool designed to help developers quickly and easily start implementing an API using **FastAPI**.
 
+[![asciicast](https://asciinema.org/a/ShHCCFjILGBhgtRgg5uh1yFm7.svg)](https://asciinema.org/a/ShHCCFjILGBhgtRgg5uh1yFm7)
+
 ## Overview
 
 Starting a new **FastAPI** project often involves repetitive tasks such as setting up a logger, managing environment variables, and configuring HTTP clients for third-party services. **Hamkee API** aims to streamline these tasks, allowing you to focus on writing your API endpoints and business logic from the outset.
