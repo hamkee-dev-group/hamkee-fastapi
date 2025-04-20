@@ -1,4 +1,4 @@
-.PHONY: start start-docker test add-dependency list-dependencies reinstall help
+.PHONY: start start-docker test add-dependency list-dependencies install help
 
 # Default target
 help:
@@ -9,7 +9,7 @@ help:
 	@echo "make test           - Run all tests"
 	@echo "make add-dependency DEP=package_name - Add a new Python dependency"
 	@echo "make list-dependencies - Show all installed Python dependencies"
-	@echo "make reinstall      - Reinstall everything from scratch"
+	@echo "make install      - Install everything from scratch"
 
 # Start the project locally
 start:
@@ -40,7 +40,7 @@ list-dependencies:
 	@echo "Listing all dependencies..."
 	rye list
 
-# Reinstall everything from scratch
-reinstall:
-	@echo "Reinstalling everything from scratch..."
+# Install everything from scratch
+install:
+	@echo "Installing everything from scratch..."
 	./scripts/devel/install.sh
