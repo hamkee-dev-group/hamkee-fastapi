@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from services import settings, logger
+from services import settings, logger as _logger
 from api.urls import router as api_router
 
 
-def get_application() -> FastAPI:
+def get_application(settings: settings.BaseAppSettings) -> FastAPI:
     """Return FastAPI application."""
 
     application = FastAPI(
@@ -16,11 +16,14 @@ def get_application() -> FastAPI:
     return application
 
 
-app = get_application()
+app_settings = settings.get_settings()
+logger = _logger.create_logger(name="main")
+app = get_application(app_settings)
 
 
-if settings.CORS_ALLOW_ALL_ORIGINS:
+if app_settings.CORS_ALLOW_ALL_ORIGINS:
     from fastapi.middleware.cors import CORSMiddleware
+
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],

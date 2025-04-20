@@ -1,4 +1,4 @@
-from api.routes.hello import hello_router 
+from api.routes.hello import hello_router
 from fastapi import APIRouter
 
 
